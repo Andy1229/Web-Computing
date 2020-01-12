@@ -4,12 +4,11 @@ This is one of my assignments in the first year. I did designing and creating we
 
 ## 1. Problem
 
-Use HTML and CSS to implement all of the pages in your site. 
-As you build your website, begin to add interactive features using JavaScript and jQuery. 
-Referring to the appropriate APIs and documentation you should now be able to begin to integrate Google Calendar Events into your website on the client side.
+Use HTML and CSS to implement all of the pages in your site. \
+As you build your website, begin to add interactive features using JavaScript and jQuery. \
+Referring to the appropriate APIs and documentation you should now be able to begin to integrate Google Calendar Events into your website on the client side.\
 When handling data on the server, use a combination of GET/POST methods and AJAX, modify your website and server to implement the calls needed to handle the content/information identified in your list. Use variables on your webserver to store content provided by the client. ◦ The data should remain between browser refreshes, however will be lost when the server is restarted.
 Finally, write down the queries needed to store and retrieve data in your database. So by clicking events, users can add comments on clicked events.
-
 
 * Show you can use the basic knowledge of CSS/HTML/Javascript or jQuery.
 * Understand NPM, NodeJS and Express and use Google API Key
@@ -32,7 +31,7 @@ and start the website
 npm start
 ```
 
-After starting the server, you need to go to 'localhost:3000',then you can see the login page.
+After starting the server, you need to go to 'localhost:3000',then you can see the login page.\
 Once you login on the site, the server can display your events on your google calendar by clicking the date.
 
 
