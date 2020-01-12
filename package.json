@@ -14,7 +14,7 @@
     "express-session": "^1.15.3",
     "google-auth-library": "^0.10.0",
     "jade": "~1.5.0",
-    "morgan": "~1.2.3",
+    "morgan": "~1.9.1",
     "mustache": "^2.3.0",
     "mysql": "^2.13.0",
     "serve-favicon": "~2.0.1"
