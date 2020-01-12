@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="stylesheets/main.css">
+  <script src="javascripts/jquery-3.2.1.min.js"></script>
+  <script src="javascripts/main.js"></script>
+
+  <script src="javascripts/calendarscript.js"></script>
+
+  <title>Our Calendar</title>
+</head>
+
+<BODY id="bg">
+  <br>
+
+  <br>
+  <hr/>
+  <table id="dates">
+    <tr>
+      <td><a href="#">1</a></td>
+      <td><a href="#">2</a></td>
+      <td><a href="#">3</a></td>
+      <td><a href="#">4</a></td>
+      <td><a href="#">5</a></td>
+      <td><a href="#">6</a></td>
+      <td><a href="#">7</a></td>
+      <td><a href="#">8</a></td>
+      <td><a href="#">9</a></td>
+      <td><a href="#">10</a></td>
+      <td><a href="#">11</a></td>
+      <td><a href="#">12</a></td>
+      <td><a href="#">13</a></td>
+      <td><a href="#">14</a></td>
+      <td><a href="#">15</a></td>
+      <td><a href="#">16</a></td>
+      <td><a href="#">17</a></td>
+      <td><a href="#">18</a></td>
+      <td><a href="#">19</a></td>
+      <td><a href="#">20</a></td>
+      <td><a href="#">21</a></td>
+      <td><a href="#">22</a></td>
+      <td><a href="#">23</a></td>
+      <td><a href="#">24</a></td>
+      <td><a href="#">25</a></td>
+      <td><a href="#">26</a></td>
+      <td><a href="#">27</a></td>
+      <td><a href="#">28</a></td>
+      <td><a href="#">29</a></td>
+      <td><a href="#">30</a></td>
+    </tr>
+  </table>
+  <hr/>
+  <div id="descriptions">
+    <p>Event Descriptions</p>
+  </div>
+  <!--create two buttons to link to login and create account pages-->
+  <!--Add buttons to initiate auth sequence and sign out-->
+  <!--   <button id="authorize-button" style="display: none;">Authorize</button> -->
+  
+  <input type="text" name="date" id="cdate" value="DD-MM-YYYY" onclick="displayDatePicker('date', this);">
+  <input type=button value="SEARCH" class="search" onclick="finddate()">
+  <button onclick="listUpcomingEvents()">Click for all events</button>
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="255494830748-3q4m4klo516cv44u3lhus90jr123dfen.apps.googleusercontent.com">
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  
+  <button class="LOGOUT" href="#" onclick="signOut();">Sign out</button>
+  <script>
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      window.location.href = "signout.html";
+    }
+  </script>
+
+  <div id="content">
+    <ul id="contentList">
+    </ul>
+  </div>
+
+  <div id="formDiv" style="display: none;">
+    <form>
+      <label id="eventLabel"></label>
+      <br>
+      <br>
+      <div id="eventNoteDiv"></div>
+      <br>
+      <br>
+      <textarea id="eventNote" rows="10" cols="30"></textarea>
+      <br>
+      <button onclick="save()">Save</button>
+    </form>
+  </div>
+  <div class="wrap top">
+    <b id="menu1" onMouseOver="colorchange1()" onMouseOut="colorback1()" onclick="changeimg()">Background</b>&nbsp;&nbsp;&nbsp;
+    <b id="menu2" onMouseOver="colorchange2()" onMouseOut="colorback2()" onclick="calendarcolor()">Calendar Color</b>&nbsp;&nbsp;&nbsp;
+    <b id="menu3" onMouseOver="colorchange3()" onMouseOut="colorback3()">Personal menu</b>&nbsp;&nbsp;&nbsp;
+    <b id="menu4" onMouseOver="colorchange4()" onMouseOut="colorback4()">Report Error</b>
+  </div>
+
+  <script src="javascripts/main.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+
+  </script>
+
+  <div id="kCalendar"></div>
+  <script>
+    kCalendar('kCalendar');
+  </script>
+
+
+  <script>
+    $("table#dates tr td").click(function () {
+      var day = $(this).text();
+      var minDay = new Date();
+      minDay.setHours(0, 0, 0, 0);
+      minDay.setDate(parseInt(day));
+      minDay = minDay.toISOString();
+
+      var maxDay = new Date();
+      maxDay.setHours(23, 59, 59, 0);
+      maxDay.setDate(parseInt(day));
+      maxDay = maxDay.toISOString();
+      //alert(minDay);
+      //alert(maxDay);
+
+
+
+      listUpcomingEvents(minDay, maxDay);
+    });
+  </script>
+
+
+</body>
+
+</html>

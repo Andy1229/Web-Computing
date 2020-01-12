@@ -1,0 +1,48 @@
+body
+{
+    background-image: url("../images/background/b5.jpg");
+}
+h1
+{
+    text-align: center;
+}
+
+.loginbt
+{
+    position: absolute;
+    top:17%;
+    left:48%;
+    font-size:15px;
+}
+
+#bg{
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+ .googleCalendar
+{
+    float: right;
+    border-width: 0;
+    scroll-behavior: none;
+
+    width: 75%;
+    height: 65%;
+    position: absolute;
+    right: 7px;
+    top: 50px;
+
+}
+
+
+
+iframe{
+    border:0;
+    width:800px;
+    height:600px;
+    frameborder:0;
+    scrolling:no;
+}
+
